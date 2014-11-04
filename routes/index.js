@@ -35,4 +35,11 @@ router.get('/posts', function(req, res){
 	});
 });
 
+router.get('/post/:postId', function(req, res){
+	// res.send(req.params.postTitle);
+	Post.find({_id : req.params.postId}, function(err, post){
+		res.render('post', { post : post, title:'Each Post' });
+	});
+});
+
 module.exports = router;

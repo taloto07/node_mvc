@@ -7,9 +7,9 @@
   <body>
     <h1>All Posts</h1>
     <a href='/create-new-post'>Creat New Post</a>
-    <% for (var i = 0; i < posts.length; i++) {%>
+    <% for (var i in posts) {%>
     	<ul>
-    		<li><%= posts[i].title %></li>
+    		<li><a href='/post/<%=posts[i]._id%>'><%= posts[i].title %></a></li>
     		<li><%= posts[i].body %></li>
     		<li>Delete</li>
     	</ul>
