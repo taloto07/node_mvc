@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>All Post</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+<% include layouts/header.ejs %>
+
+  <div class='container'>
     <h1>All Posts</h1>
-    <a href='/create-new-post'>Creat New Post</a>
     <% for (var i in posts) {%>
     	<ul>
     		<li><a href='/post/<%=posts[i]._id%>'><%= posts[i].title %></a></li>
@@ -14,5 +9,7 @@
     		<li>Delete</li>
     	</ul>
     <%}%>
-  </body>
-</html>
+  </div>
+  
+<% include layouts/footer.ejs %>
+  

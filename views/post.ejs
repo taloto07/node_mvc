@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-  	<% for (var i in post) {%>
-	    <h1><%= post[i].title %></h1>
-	    <p>body: <%= post[i].body %></p>
-   <% } %>
-    <p><a href='/posts'>All Posts</a></p>
-  </body>
-</html>
+<% include layouts/header.ejs %>
+
+<div class='container'>
+  <h1><%= post.title %></h1>
+  <p>body: <%= post.body %></p>
+  
+</div>
+
+<% include layouts/footer.ejs %>

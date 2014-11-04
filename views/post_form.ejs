@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Create New Post</title>
-</head>
-<body>
-	<a href='/posts'>See All Posts</a>
+<% include layouts/header.ejs %>
+
+<div class='container'>
 	<form method='post' actioln='/create-new-post'>
 		<p>Title: <input type='text' name='title'/>
 		<p>Body: <input type='text' name='body'/>
 		<p><input type='submit'/>
 	</form>
-</body>
-</html>
+</div>
+
+<% include layouts/footer.ejs %>

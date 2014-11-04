@@ -5,11 +5,11 @@ var Post = require('./../models/post');
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Home', home: 'active'});
 });
 
 router.get('/create-new-post', function(req, res){
-	res.render('post_form');
+	res.render('post_form', { title: 'Create New Post', post: 'active' });
 });
 
 router.post('/create-new-post', function(req, res){
@@ -31,14 +31,14 @@ router.post('/create-new-post', function(req, res){
 router.get('/posts', function(req, res){
 	Post.find(function(err, posts){
 		console.log(posts);
-		res.render('all_posts', {posts: posts});
+		res.render('all_posts', {posts: posts, title: 'All Posts', postsActive: 'active'});
 	});
 });
 
 router.get('/post/:postId', function(req, res){
 	// res.send(req.params.postTitle);
-	Post.find({_id : req.params.postId}, function(err, post){
-		res.render('post', { post : post, title:'Each Post' });
+	Post.findOne({_id : req.params.postId}, function(err, post){
+		res.render('post', { post : post, title: post.title});
 	});
 });
 
