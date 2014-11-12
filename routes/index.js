@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/create-new-post', function(req, res){
-	res.render('post_form', { title: 'Create New Post', post: 'active' });
+	res.render('post_form', { title: 'Create New Post', post: 'active', style: "post_validation.css" });
 });
 
 router.post('/create-new-post', function(req, res){

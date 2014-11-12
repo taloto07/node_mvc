@@ -1,11 +1,20 @@
 <% include layouts/header.ejs %>
 
-<div class='container'>
-	<form method='post' actioln='/create-new-post'>
-		<p>Title: <input type='text' name='title'/>
-		<p>Body: <input type='text' name='body'/>
-		<p><input type='submit'/>
-	</form>
+<div ng-app='myApp'>
+	<div class='container' ng-controller='FormController as form'>
+		<form method='post' action='/create-new-post' ng-submit='blogForm.$valid' name='blogForm'>
+			<p>Title: <input type='text' name='title' ng-model='form.model.title' required/>
+			<p>Body: <input type='text' name='body' ng-model='form.model.body' required/>
+			<p><input type='submit'/>
+		</form>
+		<div>
+			<p ng-show='form.model.title'>title: {{form.model.title}}</p>
+			<p ng-show='form.model.body'>body: {{form.model.body}}</p>
+		</div>
+	</div>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+<script type="text/javascript" src="/javascripts/app.js"></script>
 
 <% include layouts/footer.ejs %>
